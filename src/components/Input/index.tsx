@@ -15,10 +15,6 @@ import { FiAlertCircle } from 'react-icons/fi';
 /*  styles */
 import { Container, Error } from './styles';
 
-/* components */
-
-import Tooltip from '../Tooltip';
-
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
   icon?: React.ComponentType<IconBaseProps>;
