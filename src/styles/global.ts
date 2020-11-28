@@ -1,4 +1,4 @@
-/* packages */
+/* modules */
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
@@ -10,7 +10,7 @@ export default createGlobalStyle`
   }
 
   body {
-    background: #312E38;
+    background: #0d0d0d;
     color: #FFF;
     -webkit-font-smoothing: antialiased;
   }

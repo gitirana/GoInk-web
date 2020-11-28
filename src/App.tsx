@@ -1,9 +1,9 @@
-/* packages */
+/* modules */
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-/* components */
-import SignIn from './pages/SignIn';
-// import SignUp from './pages/SignUp';
+/* routes */
+import Routes from './routes';
 
 /* hooks */
 import { AppProvider } from './hooks/index';
@@ -12,12 +12,12 @@ import { AppProvider } from './hooks/index';
 import GlobalStyles from './styles/global';
 
 const App: React.FC = () => (
-  <>
+  <Router>
     <AppProvider>
-      <SignIn />
+      <Routes />
     </AppProvider>
 
     <GlobalStyles />
-  </>
+  </Router>
 );
 export default App;

@@ -1,15 +1,12 @@
-/* packages */
-import styled from 'styled-components';
+/* modules */
+import styled, { keyframes } from 'styled-components';
 
 /* images */
 import backgroundImage from '../../assets/Imagem.png';
-// import inkMark from '../../assets/ink-mark.svg';
-// import image from '../../assets/dark-gray.png';
 
 export const Container = styled.div`
   height: 100vh;
 
-  background: #0d0d0d;
   display: flex;
   align-items: stretch;
 `;
@@ -18,10 +15,31 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  place-content: center;
+  justify-content: center;
 
   width: 100%;
   max-width: 700px;
+`;
+
+const appearFromRight = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
+
+export const AnimationContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  animation: ${appearFromRight} 1s;
 
   img {
     margin-top: 40px;
