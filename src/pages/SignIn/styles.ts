@@ -2,19 +2,22 @@
 import styled from 'styled-components';
 
 /* images */
-import backgroundImage from '../../assets/background-image.png';
+import backgroundImage from '../../assets/Imagem.png';
+// import inkMark from '../../assets/ink-mark.svg';
+// import image from '../../assets/dark-gray.png';
 
 export const Container = styled.div`
   height: 100vh;
 
+  background: #0d0d0d;
   display: flex;
   align-items: stretch;
 `;
+
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
   place-content: center;
 
   width: 100%;
@@ -49,9 +52,10 @@ export const Content = styled.div`
   > a {
     color: #ff9000;
     display: block;
-    margin-top: 24px;
+    margin-top: 10px;
     text-decoration: none;
     transition: color 0.2s;
+    font-weight: 500;
 
     display: flex;
     align-items: center;
@@ -68,6 +72,6 @@ export const Content = styled.div`
 
 export const Background = styled.div`
   flex: 1;
-  background: url(${backgroundImage}) no-repeat center;
+  background-image: url(${backgroundImage});
   background-size: cover;
 `;

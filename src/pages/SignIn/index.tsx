@@ -18,7 +18,8 @@ import Button from '../../components/Button';
 import getValidationErrors from '../../utils/getValidationErrors';
 
 /* hooks */
-import { useAuth } from '../../hooks/AuthContext';
+import { useAuth } from '../../hooks/auth';
+import { useToast } from '../../hooks/toast';
 
 /* styles */
 import { Background, Container, Content } from './styles';
@@ -32,6 +33,7 @@ const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
   const { signIn } = useAuth();
+  const { addToast } = useToast();
 
   const handleSubmit = useCallback(
     async (data: SignInFormData) => {
@@ -48,20 +50,28 @@ const SignIn: React.FC = () => {
           abortEarly: false,
         });
 
-        signIn({
+        await signIn({
           email: data.email,
           password: data.password,
         });
       } catch (err) {
-        const errors = getValidationErrors(err);
+        if (err instanceof Yup.ValidationError) {
+          const errors = getValidationErrors(err);
+          formRef.current?.setErrors(errors);
+        }
 
-        formRef.current?.setErrors(errors);
+        addToast({
+          type: 'success',
+          title: 'Login realizado',
+          description: 'Seu login foi feito com sucesso',
+        });
       }
     },
-    [signIn],
+    [signIn, addToast],
   );
   return (
     <Container>
+      <Background />
       <Content>
         <img src={logo} alt="GoInk" />
         <Form ref={formRef} onSubmit={handleSubmit}>
@@ -84,7 +94,6 @@ const SignIn: React.FC = () => {
           Criar conta
         </a>
       </Content>
-      <Background />
     </Container>
   );
 };
