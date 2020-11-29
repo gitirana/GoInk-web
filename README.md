@@ -2,6 +2,8 @@
 <img src="https://raw.githubusercontent.com/gitirana/GoInk-web/main/src/assets/logo.svg" alt="goink" />
 </h1>
 
+# GoInk Frontend
+
 The frontend with ReactJS of GoInk App that use the API developed in this [repository](https://github.com/gitirana/GoInk-backend).
 
 This application was developed in order to facilitate the scheduling of tattoo sessions.
